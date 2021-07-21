@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Great success! -- test complete\"",
-    "check-complete": "echo \"Great success! -- check complete\""
+    "check-complete": "echo \"Great success! -- check complete!\""
   },
   "keywords": [],
   "author": "",
