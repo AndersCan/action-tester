@@ -6,7 +6,7 @@ on:
 
 jobs:
   build_deploy:
-    name: Dummy build
+    name: Dummy check
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
