@@ -13,8 +13,14 @@
     "simple-git": "^2.41.1",
     "ts-node": "^10.1.0"
   },
+  "prettier": {
+    "printWidth": 80
+  },
   "volta": {
     "node": "14.17.3",
     "npm": "7.20.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
   }
 }

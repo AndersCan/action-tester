@@ -4,7 +4,10 @@ const git: SimpleGit = simpleGit();
 
 main();
 async function main() {
+  await git.checkout("master");
+  await git.checkoutLocalBranch("branch-a");
   const status = await git.status();
-
+  await git.checkout("master");
+  await git.deleteLocalBranch("branch-a");
   console.log(status);
 }
