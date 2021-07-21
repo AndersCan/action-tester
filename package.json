@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Great success! -- test complete\"",
+    "check-complete": "echo \"Great success! -- check complete\""
   },
   "keywords": [],
   "author": "",
