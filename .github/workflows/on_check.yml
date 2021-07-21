@@ -1,0 +1,18 @@
+name: dummy-build
+
+on:
+  check_suite:
+    types: [completed]
+
+jobs:
+  build_deploy:
+    name: Dummy build
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - run: npm install
+      - run: npm check-complete
