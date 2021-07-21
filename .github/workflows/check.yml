@@ -1,8 +1,8 @@
 name: dummy-check
 
 on:
-  label:
-    types: [created, deleted]
+  pull_request:
+    types: [labeled]
 
 jobs:
   build_deploy:
@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: "14"
       - run: npm install
-      - run: npm check-complete
+      - run: npm run check-complete
       - run: |
-          echo "Hello ${{ github.event }}!"
-          echo "- in ${{ github.eventlabel }}!"
+          echo "Hello ${{ github.event.label }}!"
+          echo "- in ${{ github.event.label.name }}!"
