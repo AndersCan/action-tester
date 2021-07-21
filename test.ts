@@ -6,8 +6,11 @@ main();
 async function main() {
   await git.checkout("master");
   await git.checkoutLocalBranch("branch-a");
+  await git.merge(["branch-b"]);
   const status = await git.status();
+  const log = await git.log(["-4"]);
   await git.checkout("master");
-  await git.deleteLocalBranch("branch-a");
+  await git.deleteLocalBranch("branch-a", true);
   console.log(status);
+  console.log(log);
 }
