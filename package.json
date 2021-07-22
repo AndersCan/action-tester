@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Great success! -- test complete\"",
-    "check-complete": "echo \"Great success! -- check complete!\""
+    "check-complete": "echo \"Great success! -- check complete!\"",
+    "build": "esbuild action-index.ts --bundle --platform=node --minify --outfile=action-index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0",
+    "esbuild": "^0.12.15",
     "simple-git": "^2.41.1",
     "ts-node": "^10.1.0"
   },
