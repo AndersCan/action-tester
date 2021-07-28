@@ -20,6 +20,8 @@ async function run() {
       issue_number: pull_request_number,
       body: message,
     });
+
+    await sleep(1000);
     await new_comment;
     core.setOutput("time", "time-output");
 
@@ -28,5 +30,9 @@ async function run() {
     core.setFailed(error.message);
   }
 }
-
+function sleep(ms) {
+  return new Promise((res) => {
+    setTimeout(res, ms);
+  });
+}
 run();
