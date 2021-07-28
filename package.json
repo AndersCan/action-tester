@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Great success! -- test complete\"",
     "check-complete": "echo \"Great success! -- check complete!\"",
-    "build": "esbuild action-index.ts --bundle --platform=node --minify --outfile=action-index.js"
+    "build": "esbuild action-index.ts --bundle --platform=node --minify --outfile=action-index.js",
+    "build-comment": "esbuild comment-index.ts --bundle --platform=node --minify --outfile=comment-index.js"
   },
   "keywords": [],
   "author": "",

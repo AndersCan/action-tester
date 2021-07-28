@@ -1,13 +1,16 @@
 name: "Hello World"
 description: "Greet someone and record the time"
 inputs:
-  who-to-greet: # id of input
+  message: # id of input
     description: "Who to greet"
     required: true
     default: "World"
+  GITHUB_TOKEN: # GITHUB_TOKEN
+    description: "YOUR TOKEN"
+    required: true
 outputs:
   time: # id of output
     description: "The time we greeted you"
 runs:
   using: "node12"
-  main: "action-index.js"
+  main: "comment-index.js"
