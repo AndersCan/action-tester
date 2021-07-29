@@ -14,7 +14,7 @@ async function run() {
       return;
     }
     console.log({ pull_request_number });
-    const octokit = github.getOctokit(github_token, {});
+    const octokit = github.getOctokit(github_token);
     const new_comment = octokit.rest.issues.createComment({
       ...context.repo,
       issue_number: pull_request_number,
