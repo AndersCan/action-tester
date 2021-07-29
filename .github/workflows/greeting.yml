@@ -17,6 +17,7 @@ jobs:
         with:
           comment-message: "@dependabot merge"
           required-pr-creator: "dependabot[bot]"
+          required-pr-target: "deps"
           github-token: ${{ github.token }}
       # Use the output from the `hello` step
       - name: Autocomment result

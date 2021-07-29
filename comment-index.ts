@@ -10,6 +10,13 @@ async function main() {
     const requiredPullRequestUser = core.getInput("required-pr-creator", {
       required: true,
     });
+    const requiredPullRequestBranchTarget = core.getInput(
+      "required-pr-target",
+      {
+        required: true,
+      }
+    );
+
     console.log(JSON.stringify(github.context, null, 2));
 
     const { pull_request: pr } = github.context.payload;
@@ -35,6 +42,20 @@ async function main() {
 
         core.info(notRequiredPrCreatorMessage);
         core.setOutput("result", notRequiredPrCreatorMessage);
+
+        return;
+      }
+    }
+
+    if (requiredPullRequestBranchTarget !== "*") {
+      const branchTarget = pr.base.ref;
+      const isRequiredBranchTarget =
+        branchTarget === requiredPullRequestBranchTarget;
+      if (!isRequiredBranchTarget) {
+        const notRequiredPrBranchTargetMessage = `'${branchTarget}' does not match required-pr-target '${requiredPullRequestBranchTarget}'`;
+
+        core.info(notRequiredPrBranchTargetMessage);
+        core.setOutput("result", notRequiredPrBranchTargetMessage);
 
         return;
       }

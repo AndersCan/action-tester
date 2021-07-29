@@ -12,6 +12,11 @@ inputs:
     description: Will comment only if required-pr-creator matches the PR creator
     default: "*"
     required: false
+  required-pr-target:
+    description: Will comment only if required-pr-target matches the PR target
+    default: "*"
+    required: false
+
 outputs:
   result: # id of output
     description: "The result of the autocomment job"
