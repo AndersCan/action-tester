@@ -1,20 +1,24 @@
-on: [pull_request]
+on: pull_request
+
+# on:
+#   pull_request:
+#     types: [opened]
 
 jobs:
-  hello_world_job:
+  dependabot-merge-comment:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: dependabot-merge-comment
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Autocomment
         uses: ./ # Uses an action in the root directory
-        id: hello
+        id: autocomment
         with:
-          message: "Mona the Octocat"
-          GITHUB_TOKEN: ${{ github.token }}"
+          comment-message: "@dependabot merge"
+          required-pr-creator: "dependabot[bot]"
+          github-token: ${{ github.token }}
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Autocomment result
+        run: |
+          echo "Result: ${{ steps.autocomment.outputs.result }}"

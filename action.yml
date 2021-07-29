@@ -1,17 +1,20 @@
-name: "Hello World"
-description: "Greet someone and record the time"
+name: "Comment PR"
+description: "Comment a PR"
 inputs:
-  message: # id of input
-    description: "Who to greet"
+  comment-message: # id of input
+    description: "What to comment"
     required: true
-    default: "World"
   github-token:
     description: The GitHub token used to create an authenticated client
     default: ${{ github.token }}
     required: false
+  required-pr-creator:
+    description: Will comment only if required-pr-creator matches the PR creator
+    default: "*"
+    required: false
 outputs:
-  time: # id of output
-    description: "The time we greeted you"
+  result: # id of output
+    description: "The result of the autocomment job"
 runs:
   using: "node12"
   main: "comment-index.js"
