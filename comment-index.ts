@@ -4,8 +4,8 @@ import * as github from "@actions/github";
 async function run() {
   try {
     const message = core.getInput("message");
-    const github_token = core.getInput("GITHUB_TOKEN");
-
+    const github_token = core.getInput("github-token", { required: true });
+    console.log("token length", github_token.length);
     const context = github.context;
     const pull_request_number = context.issue.number;
     console.log(JSON.stringify(context, null, 2));
@@ -14,14 +14,14 @@ async function run() {
       return;
     }
     console.log({ pull_request_number });
-    const octokit = github.getOctokit(github_token);
+    const octokit = github.getOctokit(github_token, {});
     const new_comment = octokit.rest.issues.createComment({
       ...context.repo,
       issue_number: pull_request_number,
       body: message,
     });
 
-    await sleep(1000);
+    await sleep(100);
     await new_comment;
     core.setOutput("time", "time-output");
 
