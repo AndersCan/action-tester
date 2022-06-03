@@ -9,6 +9,6 @@ updates:
     #versioning-strategy: lockfile-only
     schedule:
       interval: "daily"
-    ignore:
+    allow:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
