@@ -4,8 +4,10 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     target-branch: "master"
-    update_types:
-      - "semver:patch"
-      - "semver:minor"
+    # Only allow updates to the lockfile for pip and
+    # ignore any version updates that affect the manifest
+    versioning-strategy: lockfile-only
     schedule:
       interval: "daily"
+    ignore:
+      - update-types: ["version-update:semver-major"]
