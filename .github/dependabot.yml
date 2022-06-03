@@ -4,10 +4,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     target-branch: "master"
+    update_types:
+      - "semver:patch"
+      - "semver:minor"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-type: "production"
-        update-types: ["version-update:semver-patch"]
-      - dependency-type: "development"
-        update-types: ["version-update:semver-patch"]
