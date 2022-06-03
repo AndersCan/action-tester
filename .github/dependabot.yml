@@ -1,0 +1,12 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-type: "production"
+        update-types: ["version-update:semver-patch"]
+      - dependency-type: "development"
+        update-types: ["version-update:semver-patch"]
