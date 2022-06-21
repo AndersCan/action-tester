@@ -3,7 +3,7 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
-    target-branch: "master"
+    target-branch: "dependencies"
     # Only allow updates to the lockfile for pip and
     # ignore any version updates that affect the manifest
     #versioning-strategy: lockfile-only
